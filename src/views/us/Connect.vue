@@ -1,9 +1,7 @@
 <template>
   <div class="main">
     <p><b>广州盛通建筑劳务有限公司</b></p>
-    <p v-for="item in contacts" :key="item.id">{{item.contact}}{{contact_type}}：{{item.detail}}</p>
-    <p>地址：湖南省长沙市望城区月亮岛街道普瑞大道</p>
-    <p>主页：http://www.csjqlw.com</p>
+    <p v-for="item in contacts" :key="item.id">{{item.contact}}：{{item.detail}}</p>
     <div ref="map" id="map" class="map"></div>
   </div>
 </template>
@@ -16,7 +14,7 @@ export default {
       markerUrl: require('../../assets/images/map_position.png'), // 点标记图片路径
       map: '',
       zoom: 13, // 地图一开始的缩放级别
-      center: new window.TMap.LatLng(39.984120, 116.307484), // 地图一开始的中心点
+      center: new window.TMap.LatLng(38.984120, 116.307484), // 地图一开始的中心点
       markerLayer: '',
       point: {
         id: 1,
@@ -27,16 +25,20 @@ export default {
     }
   },
   mounted () {
-    this.initMap(this.center, this.zoom) // 初始化页面后直接初始化地图
+    this.init()
+    // 初始化页面后直接初始化地图
   },
   created () {
-    this.init()
   },
   methods: {
     async init () {
       await this.$axios.get('/contact/front/getAll').then((res) => {
         if (res.data.code === 200 && res.data.msg === '联系方式获取成功') {
-          this.contacts = res.data.data
+          this.contacts = res.data.data.contactList
+          this.point.latitude = res.data.data.location[1]
+          this.point.longitude = res.data.data.location[0]
+          this.center = new window.TMap.LatLng(res.data.data.location[1], res.data.data.location[0])
+          this.initMap(this.center, this.zoom)
         }
       })
     },
@@ -84,6 +86,9 @@ export default {
 
 <style lang="less" scoped>
 .main{
+  p{
+    font-size: 1.2857rem;
+  }
   .map{
     width: 100%;
     height: 35.7143rem;

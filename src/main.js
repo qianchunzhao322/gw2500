@@ -5,7 +5,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://43.138.237.196:8080'
+axios.defaults.baseURL = 'http://120.77.253.27/api'
+// axios.defaults.baseURL = 'http://10.21.208.26:8081'
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
 // axios.defaults.timeout = 5000;
 

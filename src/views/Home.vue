@@ -22,92 +22,21 @@
         <div class="title">
           <span>成功案例 Product display</span>
           <div class="line"></div>
-          <div class="en">Every success can not be separated from teamwork, hard work and down-to-earth efforts.</div>
         </div>
         <div class="body">
-          <div class="cards">
-            <a href="#/project">
-              <div class="img">
-              <img src="../assets/images/home_project_one.jpg" alt="">
-              <div class="mask">
-                <div class="txt">广州核岛</div>
+          <div @click="turn($event)" v-for="item in projects"  :key="item.id" :data-id="item.id" class="cards">
+            <al :data-id="item.id" href="#">
+              <div :data-id="item.id" class="img">
+              <img :data-id="item.id" :src="item.coverImg" alt="">
+              <div :data-id="item.id" class="mask">
+                <div :data-id="item.id" class="txt">{{item.projectName}}</div>
               </div>
             </div>
-            </a>
-            <div class="desc">
-              <div class="name">广州核岛</div>
-              <div class="name detail">Details
-                <div class="arrow"></div>
-              </div>
-            </div>
-          </div>
-          <div class="cards">
-            <div class="img">
-              <img src="../assets/images/home_project_two.jpg" alt="">
-              <div class="mask">
-                <div class="txt">广州核岛</div>
-              </div>
-            </div>
-            <div class="desc">
-              <div class="name">广州核岛</div>
-              <div class="name detail">Details
-                <div class="arrow"></div>
-              </div>
-            </div>
-          </div>
-          <div class="cards">
-            <div class="img">
-              <img src="../assets/images/home_project_three.jpg" alt="">
-              <div class="mask">
-                <div class="txt">广州核岛</div>
-              </div>
-            </div>
-            <div class="desc">
-              <div class="name">广州核岛</div>
-              <div class="name detail">Details
-                <div class="arrow"></div>
-              </div>
-            </div>
-          </div>
-          <div class="cards">
-            <div class="img">
-              <img src="../assets/images/home_project_four.jpg" alt="">
-              <div class="mask">
-                <div class="txt">广州核岛</div>
-              </div>
-            </div>
-            <div class="desc">
-              <div class="name">广州核岛</div>
-              <div class="name detail">Details
-                <div class="arrow"></div>
-              </div>
-            </div>
-          </div>
-          <div class="cards">
-            <div class="img">
-              <img src="../assets/images/home_project_five.jpg" style="width:140%" alt="">
-              <div class="mask">
-                <div class="txt">广州核岛</div>
-              </div>
-            </div>
-            <div class="desc">
-              <div class="name">广州核岛</div>
-              <div class="name detail">Details
-                <div class="arrow"></div>
-              </div>
-            </div>
-          </div>
-          <div class="cards">
-            <div class="img">
-              <img src="../assets/images/home_project_six.jpg" style="width:140%" alt="">
-              <div class="mask">
-                <div class="txt">广州核岛</div>
-              </div>
-            </div>
-            <div class="desc">
-              <div class="name">广州核岛</div>
-              <div class="name detail">Details
-                <div class="arrow"></div>
+            </al>
+            <div :data-id="item.id" class="desc">
+              <div :data-id="item.id" class="name">{{item.projectName}}</div>
+              <div :data-id="item.id" class="name detail">Details
+                <div :data-id="item.id" class="arrow"></div>
               </div>
             </div>
           </div>
@@ -121,7 +50,9 @@
       <div class="left">
         <div class="box title">关于我们 about us</div>
         <div class="box line"></div>
-        <div class="box p">长沙建强建筑劳务有限公司成立于2010年，劳务承包壹级企业，注册资金达人民币1000万元，公司主要承接工业与民用建筑、室内（外）装修装饰、桥梁道路隧道工程、水电暖卫等工程项目施工。公司在湘、琼、黔、赣、鄂、豫、晋等地拥有职工5000余人，其中包括管理人员及特殊工种人员，一线作业人员持证率达100%，公司拥有施工中小型机械及仪器设备多套，具备完成各类建筑、市政、机电、公路等相关施工任务的能力。</div>
+        <div class="box p" >{{ this.text.content }}
+
+</div>
         <a style="text-decoration: none;" href="#/about"><div class="btn">MORE</div></a>
       </div>
       <div class="right"></div>
@@ -131,64 +62,21 @@
         <div class="title">
           <span>新闻中心 News Center</span>
           <div class="line"></div>
-          <div class="en">Every success can not be separated from teamwork, hard work and down-to-earth efforts.</div>
         </div>
         <div class="body">
-          <div class="cards">
-            <a style="text-decoration: none;" href="#/new">
-              <div class="left">
-              <div class="inner">
-                <img src="../assets/images/home_new_one.png" alt="">
+          <div  class="cards" :data-id="item.id" v-for="item in news" :key="item.id" @click="turnNews($event)">
+            <al :data-id="item.id" style="text-decoration: none;" href="">
+              <div :data-id="item.id" class="left">
+              <div :data-id="item.id" class="inner">
+                <img :data-id="item.id" :src="item.coverImg" alt="">
               </div>
             </div>
-            <div class="right">
-              <div class="txt header">海峡两岸一家亲，建强团队众人行</div>
-              <div class="txt p">海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，</div>
-              <div class="txt time">2021-09-15</div>
+            <div  :data-id="item.id" class="right">
+              <div  :data-id="item.id" class="txt header">{{ item.title }}</div>
+              <div :data-id="item.id" class="txt p">{{ item.title }}</div>
+              <div :data-id="item.id" class="txt time">{{ item.newsTime }}</div>
             </div>
-            </a>
-          </div>
-          <div class="cards">
-            <a style="text-decoration: none;" href="#/new">
-              <div class="left">
-              <div class="inner">
-                <img src="../assets/images/home_new_two.png" alt="">
-              </div>
-            </div>
-            <div class="right">
-              <div class="txt header">海峡两岸一家亲，建强团队众人行</div>
-              <div class="txt p">海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，</div>
-              <div class="txt time">2021-09-15</div>
-            </div>
-            </a>
-          </div>
-          <div class="cards">
-            <a style="text-decoration: none;" href="#/new">
-              <div class="left">
-              <div class="inner">
-                <img src="../assets/images/home_new_three.png" alt="">
-              </div>
-            </div>
-            <div class="right">
-              <div class="txt header">海峡两岸一家亲，建强团队众人行</div>
-              <div class="txt p">海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，</div>
-              <div class="txt time">2021-09-15</div>
-            </div>
-            </a>
-          </div>
-          <div class="cards">
-            <a style="text-decoration: none;" href="#/new">
-              <div class="left">
-              <div class="inner">
-                <img src="../assets/images/home_new_four.png" alt="">
-              </div>
-            </div>
-            <div class="right">
-              <div class="txt header">海峡两岸一家亲，建强团队众人行</div>
-              <div class="txt p">海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，海峡两岸一家亲，建强团队众人行怀揣着激动已久的心情，时间终于来到了2019年7月13日。今天，</div>
-              <div class="txt time">2021-09-15</div>
-            </div>
-            </a>
+            </al>
           </div>
         </div>
         <div class="footer">
@@ -204,8 +92,16 @@ export default {
   name: 'Home',
   components: {
   },
+  created () {
+    this.initNew()
+    this.initProject()
+    this.init()
+  },
   data () {
     return {
+      projects: null,
+      news: null,
+      text: null,
       img: [{
         url: 'https://zqc-blog-img.oss-cn-beijing.aliyuncs.com/https://zqc-blog-img.oss-cn-beijing.aliyuncs.com%E8%BD%AE%E6%92%AD%E5%9B%BE6.png',
         title: '以质量求生存，以质量求发展，向质量要效益'
@@ -219,6 +115,38 @@ export default {
         url: 'https://zqc-blog-img.oss-cn-beijing.aliyuncs.com/https://zqc-blog-img.oss-cn-beijing.aliyuncs.com%E8%BD%AE%E6%92%AD%E5%9B%BE3.png',
         title: ' 团队目标心中记，融入集体尽全力'
       }]
+    }
+  },
+  methods: {
+    async initNew () {
+      await this.$axios.get('/news/front/getByType?type=公司动态').then((res) => {
+        if (res.data.code === 200 && res.data.msg === '获取公司动态成功') {
+          this.news = res.data.data.slice(0, 4)
+        }
+      })
+    },
+    async init () {
+      await this.$axios.get('/company/front/getByType?type=introduce').then((res) => {
+        if (res.data.code === 200 && res.data.msg === 'introduce信息查询成功') {
+          this.text = res.data.data
+        }
+      })
+    },
+    turn (e) {
+      this.$router.push({ name: 'Info', params: { id: e.target.dataset.id } })
+      localStorage.setItem('proId', e.target.dataset.id)
+    },
+    turnNews (e) {
+      console.log(e)
+      this.$router.push({ name: 'newInfo', params: { id: e.target.dataset.id } })
+      localStorage.setItem('newId', e.target.dataset.id)
+    },
+    async initProject () {
+      await this.$axios.get('/project/front/getAll').then((res) => {
+        if (res.data.code === 200 && res.data.msg === '项目信息获取成') {
+          this.projects = res.data.data.slice(0, 6)
+        }
+      })
     }
   }
 }

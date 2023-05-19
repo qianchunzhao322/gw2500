@@ -8,7 +8,6 @@
         <li><a href="#/new" >新闻中心</a></li>
         <li><a href="#/project" >施工项目</a></li>
         <li><a href="#/people">人才招聘</a></li>
-        <li><a href="#/online">在线留言</a></li>
         <li><a href="#/us">联系我们</a></li>
       </ul>
     </header>
@@ -44,11 +43,7 @@
         <ul>
           <li>人才招聘</li>
           <li><a href="#/people/">人才理念</a></li>
-          <li><a href="#/people/position">岗位发布</a></li>
-        </ul>
-        <ul>
-          <li>在线留言</li>
-          <li><a href="#/online">在线留言</a></li>
+          <li><a href="#/people/position">岗位</a></li>
         </ul>
         <ul>
           <li>联系我们</li>
@@ -57,8 +52,8 @@
       </div>
       <div class="bottom">
         <div class="left">
-          <i class="on">Copyright © 2002-2022版权所有 广东盛通劳务有限公司 </i>
-          <i>粤网文【2022】xxxx-xxxx号 &nbsp;&nbsp;粤xx-xxxxxxxx &nbsp;&nbsp;粤公网安备 xxxxxxxxxxxxxxxxx号</i>
+          <i class="on">Copyright © 2002-2023版权所有 广东盛通劳务有限公司 </i>
+          <i><a href="https://beian.miit.gov.cn/#/Integrated/index">{{ wx.content}}粤网文【2022】xxxx-xxxx号</a> &nbsp;&nbsp;<a href="https://beian.miit.gov.cn/#/Integrated/index">粤xx-xxxxxxxx</a> &nbsp;&nbsp;<a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502008569">粤公网安备 xxxxxxxxxxxxxxxxx号</a></i>
         </div>
         <div class="right">SHGTON盛通劳务</div>
       </div>
@@ -70,13 +65,22 @@ import '@/utils/flexible.js'
 export default {
   data () {
     return {
-      up_select: false
+      up_select: false,
+      wx: null
     }
   },
   mounted () {
     window.addEventListener('scroll', this.scrollToTop)
+    this.init()
   },
   methods: {
+    async init () {
+      await this.$axios.get('/company/front/getByType?type=record').then((res) => {
+        if (res.data.code === 200 && res.data.msg === 'record信息查询成功') {
+          this.wx = res.data.data
+        }
+      })
+    },
     goAnchor (selector) { /* 参数selector是id选择器（#anchor14） */
       document.querySelector(selector).scrollIntoView({
         behavior: 'smooth'
@@ -279,6 +283,11 @@ export default {
           margin: .3571rem 0;
           font-style: normal;
           font-size: 1rem;
+          a{
+            color: #2c3e50;
+            text-decoration: none;
+            cursor: pointer;
+          }
         }
         .on{
           margin-top: 1.4286rem;

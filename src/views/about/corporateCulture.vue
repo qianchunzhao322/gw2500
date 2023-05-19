@@ -1,24 +1,32 @@
 <template>
-  <div class="main">
-    <p><b>企业是船，文化是帆，船动帆升追理想，航程致远；</b></p>
-    <p class="tail"><b>员工彰志，品格彰道，志同道合聚精神，美梦成真。</b></p>
+  <div class="main" v-html="this.text.content">
   </div>
 </template>
 <script>
 export default {
-  name: 'corporateCulture'
+  name: 'corporateCulture',
+  created () {
+    this.init()
+  },
+  data () {
+    return {
+      text: null
+    }
+  },
+  methods: {
+    async init () {
+      await this.$axios.get('/company/front/getByType?type=culture').then((res) => {
+        if (res.data.code === 200 && res.data.msg === 'culture信息查询成功') {
+          this.text = res.data.data
+        }
+      })
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .main{
-p{
-  line-height: 1.7;
-  font-size: 0.99rem;
-  text-indent: 2em;
-}
-.tail{
-  margin-bottom: 7.1429rem;
-}
+min-height: 20rem;
 }
 </style>

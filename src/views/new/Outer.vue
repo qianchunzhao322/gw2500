@@ -17,6 +17,9 @@ export default {
   created () {
     this.init()
   },
+  beforeDestroy () {
+    localStorage.removeItem('newId')
+  },
   methods: {
     async init () {
       await this.$axios.get('/news/front/getByType?type=行业动态').then((res) => {
@@ -40,7 +43,7 @@ export default {
     width: 100%;
     padding: 0;
       li{
-        height: 30px;
+        height: 2.4rem;
         margin: 10px 0;
         list-style: none;
         background-color: #fff;
@@ -51,8 +54,8 @@ export default {
           transition: all .6s;
           float: left;
           color: #000;
-          font-size: 16px;
-          line-height: 30px;
+          font-size: 1.2857rem;
+          line-height: 1.9;
         }
         .time{
           color: grey;

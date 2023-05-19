@@ -36,6 +36,7 @@ export default {
     width: 100%;
     height: 10rem;
     background: url('../assets/images/ct.jpg') no-repeat;
+    background-size: contain;
   }
   .txt{
     width: 100%;
@@ -49,7 +50,7 @@ export default {
       font-size: 1.1429rem;
     }
     .phone{
-      font-size: 2.3rem;
+      font-size: 2rem;
       font-weight: bold;
     }
   }

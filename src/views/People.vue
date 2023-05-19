@@ -7,8 +7,8 @@
       <div class="inner">
         <div class="left">
           <div class="title">人才招聘 / Talent</div>
-          <a id="a" href="#/people" @click="turn"><div class="li isActive">人才理念</div></a>
-          <a id="a" href="#/people/position" @click="turn"><div class="li">招聘岗位</div></a>
+          <a id="a" href="#/people" @click="turn"><div class="li">招聘岗位</div></a>
+          <a id="a" href="#/people/position" @click="turn"><div class="li isActive">人才理念</div></a>
           <div class="out">
             <carousel></carousel>
           </div>
@@ -55,10 +55,10 @@ export default {
     },
     init () {
       if (this.$route.fullPath === '/people') {
-        this.title = '人才理念'
+        this.title = '招聘岗位'
         this.initDom(0)
       } else if (this.$route.fullPath === '/people/position') {
-        this.title = '招聘岗位'
+        this.title = '人才理念'
         this.initDom(1)
       }
     },
